@@ -1,0 +1,14 @@
+spring:
+    application:
+        name: junitdemo
+    datasource:
+        driver-class-name: com.mysql.cj.jdbc.Driver
+        url: jdbc:mysql://localhost:3306/coursejunit
+        username: root
+        password: Gkn@999s
+    jpa:
+        database-platform: org.hibernate.dialect.MySQLDialect
+        show-sql: true
+        generate-ddl: true
+        hibernate:
+            ddl-auto: update
