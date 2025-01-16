@@ -14,7 +14,7 @@ import lombok.NoArgsConstructor;
 @Builder
 public class Course {
     @Id
-    private Long id;
+    private int id;
     private String name;
     private int price;
 }
