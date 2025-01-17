@@ -24,8 +24,12 @@ public class CourseService {
     public void deleteCourse(int id){        
          repo.deleteById(id);
     }
-    public Course updateCourse(Course course){  
-        return repo.save(course);
+    public Course updateCourse(Course course,String name){  
+        Course c= new Course();
+        c.setId(course.getId());
+        c.setName(name);
+        c.setPrice(course.getPrice());
+        return repo.save(c);
     }
     public Course updatePatchCourseById(Course course,int id){
         Course c = repo.findById(id).get();     

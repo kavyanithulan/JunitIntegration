@@ -80,10 +80,11 @@ class JunitdemoApplicationTests {
 	@Sql(statements = "insert into course (id,name,price) values(101,'AB',19090)", executionPhase = Sql.ExecutionPhase.BEFORE_TEST_METHOD)
 	@Sql(statements = "delete from course where id=101", executionPhase = Sql.ExecutionPhase.AFTER_TEST_METHOD)
 	public void testUpdateCourse(){
-		Course co = new Course(101,"AB",19090);
-		restTemplate.put(baseurl+"/updateCourse", co,"");
+		String name="BOOK_U1";
+		Course course = new Course(101,"AB",19090);
+		restTemplate.put(baseurl+"/updateCourse"+"/{name}", course,name);
 		//assertEquals("ABCD", response.getName());
-		assertEquals(1, repo.findAll().size());
+		assertEquals("BOOK_U1", repo.findById(101).get().getName());
 	}
 
 }

@@ -38,9 +38,10 @@ public class CourseController {
         Course course = courseService.getCourseByName(name);
     return new ResponseEntity<>(course, HttpStatus.OK);
     }
-    @PutMapping("/updateCourse")
-    public ResponseEntity<Course> updateCourseByName(@RequestBody Course course){
-        Course updatedCourse = courseService.updateCourse(course);
+    @PutMapping("/updateCourse/{name}")
+    public ResponseEntity<Course> updateCourseByName(@RequestBody Course course,
+    @PathVariable String name){
+        Course updatedCourse = courseService.updateCourse(course,name);
     return new ResponseEntity<>(updatedCourse, HttpStatus.OK);
     }
     @PatchMapping("/patchCourse/{id}")
